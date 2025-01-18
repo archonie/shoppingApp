@@ -20,6 +20,7 @@ struct ProductCardView: View {
                         .frame(width: 175, height: 160)
                         .cornerRadius(12)
                     Text(product.name)
+                        .foregroundStyle(.black)
                         .font(.headline)
                         .padding(.vertical, 1)
                     Text(product.supplier)
@@ -27,6 +28,7 @@ struct ProductCardView: View {
                         .font(.caption)
                         .padding(.vertical, 0.5)
                     Text("$\(product.price)")
+                        .foregroundStyle(.black)
                         .bold()
                 }
                 Button {

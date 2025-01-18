@@ -16,7 +16,7 @@ struct ImageSliderView: View {
                 Image(slides[currentIndex])
                     .resizable()
                     .scaledToFill()
-                    .frame(maxWidth: .infinity, maxHeight: 180)
+                    .frame(maxWidth: .infinity, maxHeight: 160)
                     .cornerRadius(15)
             }
             
