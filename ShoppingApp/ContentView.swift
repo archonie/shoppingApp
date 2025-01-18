@@ -31,6 +31,7 @@ enum Tab: String, CaseIterable {
 }
 
 struct ContentView: View {
+    @StateObject var cartManager = CartManager()
     @State private var currentTab: Tab = .home
    
     init() {
@@ -115,6 +116,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(CartManager())
 }
 
 extension View {
