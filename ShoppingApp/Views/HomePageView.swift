@@ -24,8 +24,10 @@ struct HomePageView: View {
                             .font(.title2)
                             .fontWeight(.medium)
                         Spacer()
-                        Image(systemName: "circle.grid.2x2.fill")
-                            .foregroundStyle(.kPrimary)
+                        NavigationLink(destination: ProductsView()) {
+                            Image(systemName: "circle.grid.2x2.fill")
+                                .foregroundStyle(.kPrimary)
+                        }
                     }
                     .padding(.horizontal)
                     ScrollView(.horizontal, showsIndicators: false) {
