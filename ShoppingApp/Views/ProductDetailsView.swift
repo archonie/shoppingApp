@@ -39,17 +39,34 @@ struct ProductDetailsView: View {
                                 .cornerRadius(12)
                         }
                         .padding(.vertical)
-                        HStack(spacing: 10) {
-                            ForEach(0..<5) { index in
-                                Image(systemName: "star.fill")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                                    .foregroundStyle(.yellow)
+                        HStack {
+                            HStack(spacing: 10) {
+                                ForEach(0..<5) { index in
+                                    Image(systemName: "star.fill")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundStyle(.yellow)
+                                }
+                                Text("(4.5)")
+                                    .foregroundStyle(.gray)
                             }
-                            Text("(4.5)")
-                                .foregroundStyle(.gray)
+                            .padding(.vertical)
+                            Spacer()
+                            HStack {
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "minus.square")
+                                }
+                                Text("1")
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "plus.square.fill")
+                                        .foregroundStyle(.kPrimary)
+                                }
+                            }
                         }
-                        .padding(.vertical)
                         Text("Description")
                             .font(.title3)
                             .fontWeight(.medium)
@@ -69,18 +86,17 @@ struct ProductDetailsView: View {
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             Spacer()
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .trailing) {
                                 Text("Colors")
                                     .font(.system(size: 18))
                                     .fontWeight(.semibold)
-                                Text("Blue")
-                                    .foregroundStyle(.blue)
-                                Text("Black")
-                                    .foregroundStyle(.black)
-                                Text("Off-white")
-                                    .foregroundStyle(.gray)
+                                HStack {
+                                    ColorDotView(color: .blue)
+                                    ColorDotView(color: .black)
+                                    ColorDotView(color: .green)
+                                }
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                         .padding(.vertical)
                         PaymentButton(action: {})
@@ -100,4 +116,14 @@ struct ProductDetailsView: View {
 
 #Preview {
     ProductDetailsView(product: productList[2])
+}
+
+
+struct ColorDotView: View {
+    let color: Color
+    var body: some View {
+        color
+            .frame(width: 25, height: 25)
+            .clipShape(Circle())
+    }
 }
